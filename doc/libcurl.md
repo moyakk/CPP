@@ -65,13 +65,16 @@ void main() {
   curl_global_cleanup() ;
 }
 ```
-
+- ``curl_easy_setopt(curl, CURLOPT_POST, 1) ;`` 값을 0(false)로 주거나, 아예 설정 자체를 제거하면 GET 방식으로 동작합니다.
 
 
 ### 요청에 대한 응답을 기다려야 하는 경우
 ```cpp
 
 // 작성중 ...
+
+curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writeCallback) ;
+curl_easy_setopt(curl, CURLOPT_WRITEDATA, (void*)&chunk) ;
 
 ```
 
