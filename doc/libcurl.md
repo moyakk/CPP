@@ -1,7 +1,7 @@
 # libcurl 을 이용한 HTTP POST Request
 - C++ 에서 HTTP POST 요청을 사용하기 위해 적용되었습니다.
-  - 좀 더 구체적으로는 POST 방식의 REST API 를 사용하기 위해 적용되었습니다.
-  - HTTP 외에도 HTTPS, FTP, LDAP 등의 프로토콜을 지원한다고 합니다.
+  - 좀 더 구체적으로는 POST 방식의 REST API 사용을 목적으로 합니다.
+  - HTTP 외에도 HTTPS, FTP, LDAP 등의 프로토콜을 지원한다고 하나 여기서는 다루지 않았습니다.
 - 본 메뉴얼은 CentOS 7.8.2003 환경을 기준으로 작성되었습니다.
 
 
@@ -11,6 +11,8 @@
 yum install -y libcurl-devel
 ```
 - 의존 패키지인 curl, libcurl 이 함께 설치됩니다.
+- 헤더 파일은 ``/usr/include/curl`` 경로에 설치되고, libcurl.so 파일은 ``/usr/lib64`` 경로에 설치됩니다.
+  - 프로젝트 빌드시 ``/usr/include/curl`` 경로를 추가 할 필요가 있습니다.
 
 
 
