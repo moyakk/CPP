@@ -69,13 +69,35 @@ void main() {
 
 
 ### 요청에 대한 응답을 기다려야 하는 경우
+- [원본](https://curl.se/libcurl/c/getinmemory.html)
 ```cpp
 
 // 작성중 ...
 
-curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writeCallback) ;
-curl_easy_setopt(curl, CURLOPT_WRITEDATA, (void*)&chunk) ;
+struct MemoryStruct {
+  char *memory ;
+  size_t size ;
+}
 
+static size_t writeCallback(void *cont, size_t size, size_t nmemb, void *userp) {
+  ...
+}
+
+void main() {
+
+  struct MemoryStruct chunk ;
+  chunk.memory = malloc(1) ;
+  chunk.size = 0 ;
+  
+  // ...
+  
+  curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writeCallback) ;
+  curl_easy_setopt(curl, CURLOPT_WRITEDATA, (void*)&chunk) ;
+  
+  if (chunk.memory) {
+    free(chunk.memory) ;
+  }
+}
 ```
 
 
