@@ -1,19 +1,19 @@
 # Makefile
 
-
-
-
 ### 기본구조
 ```
 target: depencencies ..
         commands ..
 ```
-- target
-  - 빌드 대상의 이름
-- dependencies
-  - 의존 파일들, target 빌드 이전에 depencencies 에 정의된 대상들이 먼저 만들어진다.
-- commands
-  - 최종적으로 target 을 빌드하는 명령
+- 구성요소
+  - target
+    - 빌드 대상의 이름
+  - dependencies
+    - 의존 파일들, target 빌드 이전에 depencencies 에 정의된 대상들이 먼저 만들어진다.
+  - commands
+    - target 을 빌드하는 명령
+- 일반적으로 위와 같은 구조의 반복 나열로 되어있다.
+- 각 구조는 의존여부에 따라 특정 순서로 실행 될 수 있다.
 
 ## 동작 방식 이해를 위한 예제
 - main.cpp, tools.cpp 두 개의 소스코드로 이루어진 util.exe 을 빌드하는 상황을 가정한다.
