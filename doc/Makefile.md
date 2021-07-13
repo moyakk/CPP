@@ -24,7 +24,9 @@ target: depencencies ..
 
 
 
-### make 없이 직접 빌드하는 경우
+### make 없이 g++을 이용해 직접 빌드하는 경우
+- main 과 tools 의 Object 파일을 각각 만들고, 두 Object 파일을 연결해서 util.exe 실행 파일을 만든다.
+
 ```
 g++ -c -o tools.o tools.cpp
 g++ -c -o main.o main.cpp 
@@ -33,7 +35,8 @@ g++ -o util.exe main.o tools.o
 
 
 
-### 직접 빌드하는데 사용한 내용을 Makefile 양식에 맞게 서술
+### 직접 빌드하는데 사용한 내용을 Makefile 양식에 맞게 서술하면 아래와 같이 된다.
+
 Makefile
 ```
 util.exe: main.o tools.o
@@ -48,8 +51,9 @@ tools.o: tools.cpp
 
 
 
-### Makefile 에 서술된 내용을 변수를 사용해 축약
-- cpp 파일이 추가되어도 Makefile 의 내용을 특별히 수정 할 필요 없다.
+### Makefile 에 서술된 내용을 변수 규칙을 사용해 축약한다.
+- 이렇게 작성해두면 cpp 파일의 단순 추가 상황에는 Makefile 내용을 특별히 수정 할 필요 없다.
+
 Makefile
 ```
 CC = g++
